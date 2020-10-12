@@ -6,7 +6,8 @@ Hammeron is a digital polyphonic synthesizer app. Users can play chords & melodi
  * Connect keyboard events to Tone start/stop 
  * Create controls that alter timbre 
  * Right shift grabs soprano voice and bends up 1 whole step 
- * BONUS enter grabs soprano voice and adds vibrato (
+ * BONUS enter grabs soprano voice and adds vibrato
+ * Allow scale customization that remaps keys to desired pitch sets (ie: chromatic, ionian, pentatonic, bebop)
  * BONUS Drum Sequencer 
     * create 5 by 16 grid 
     * connect audio play to each box (ie: 5th tone on beat 16, 2nd tone on beat 8)
