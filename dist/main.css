@@ -1,4 +1,42 @@
-body{background-color:#ccf;color:blue;display:flex;flex-direction:column}.center{display:flex;align-items:center;justify-content:center}.card{background:white;height:50vh;width:50vw;border-radius:15px;margin-top:15px;box-shadow:3px 3px 5px 5px #009,1px 0px 1px #009}.image-card{background-image:url(images/yoda-stitch.jpg);background-position:center}h2{font-size:3rem}
+* {
+  border: 1px solid black; }
+
+body {
+  height: 100vw; }
+
+.keyboard {
+  height: 50vh;
+  width: 60vw;
+  margin: 0 auto; }
+
+div[class^="row-"] {
+  height: 100px;
+  display: flex; }
+
+.row-2 {
+  padding-left: 25px; }
+
+.row-3 {
+  padding-left: 50px; }
+
+.row-4 {
+  padding-left: 75px; }
+
+button[class^="key"] {
+  display: block;
+  text-decoration: none;
+  height: 75px;
+  width: 75px;
+  margin: 10px 10px; }
+
+button.key-enter {
+  width: 100px; }
+
+button.key-ls {
+  width: 175px; }
+
+button.bk {
+  background-color: #6b6b6b; }
 
 
-/*# sourceMappingURL=main.css.map*/
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvc3R5bGVzL2luZGV4LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQSwwQkFBMEI7O0FBRTFCO0FBQ0EsZ0JBQWdCOztBQUVoQjtBQUNBO0FBQ0E7QUFDQSxpQkFBaUI7O0FBRWpCO0FBQ0E7QUFDQSxnQkFBZ0I7O0FBRWhCO0FBQ0EscUJBQXFCOztBQUVyQjtBQUNBLHFCQUFxQjs7QUFFckI7QUFDQSxxQkFBcUI7O0FBRXJCO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxvQkFBb0I7O0FBRXBCO0FBQ0EsZUFBZTs7QUFFZjtBQUNBLGVBQWU7O0FBRWY7QUFDQSw0QkFBNEIiLCJmaWxlIjoibWFpbi5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIqIHtcbiAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7IH1cblxuYm9keSB7XG4gIGhlaWdodDogMTAwdnc7IH1cblxuLmtleWJvYXJkIHtcbiAgaGVpZ2h0OiA1MHZoO1xuICB3aWR0aDogNjB2dztcbiAgbWFyZ2luOiAwIGF1dG87IH1cblxuZGl2W2NsYXNzXj1cInJvdy1cIl0ge1xuICBoZWlnaHQ6IDEwMHB4O1xuICBkaXNwbGF5OiBmbGV4OyB9XG5cbi5yb3ctMiB7XG4gIHBhZGRpbmctbGVmdDogMjVweDsgfVxuXG4ucm93LTMge1xuICBwYWRkaW5nLWxlZnQ6IDUwcHg7IH1cblxuLnJvdy00IHtcbiAgcGFkZGluZy1sZWZ0OiA3NXB4OyB9XG5cbmJ1dHRvbltjbGFzc149XCJrZXlcIl0ge1xuICBkaXNwbGF5OiBibG9jaztcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICBoZWlnaHQ6IDc1cHg7XG4gIHdpZHRoOiA3NXB4O1xuICBtYXJnaW46IDEwcHggMTBweDsgfVxuXG5idXR0b24ua2V5LWVudGVyIHtcbiAgd2lkdGg6IDEwMHB4OyB9XG5cbmJ1dHRvbi5rZXktbHMge1xuICB3aWR0aDogMTc1cHg7IH1cblxuYnV0dG9uLmJrIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzZiNmI2YjsgfVxuIl0sInNvdXJjZVJvb3QiOiIifQ==*/

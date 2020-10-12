@@ -1,44 +1,50 @@
-// MIXINS && VARIABLES
-
-@mixin basic-box-shadow($color) {
-  box-shadow: 3px 3px 5px 5px $color, 1px 0px 1px $color;
+* {
+  border: 1px solid black;
 }
-
-$main-color: blue;
-$accent-color: darken($main-color, 20%);
-$background-color: lighten($main-color, 40%);
-
-// LAYOUT
 
 body {
-  background-color: $background-color;
-  color: $main-color;
-  display: flex;
-  flex-direction: column;
+  height: 100vw;
 }
-
-.center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-// COMPONENTS
-.card {
-  background: white;
+.keyboard {
   height: 50vh;
-  width: 50vw;
-  border-radius: 15px;
-  margin-top: 15px;
-  @include basic-box-shadow($accent-color);
+  width: 60vw;
+  margin: 0 auto;
 }
 
-.image-card {
-  background-image: url("../images/yoda-stitch.jpg");
-  background-position: center;
+div[class^="row-"] {
+  height: 100px;
+  display: flex;
+ 
 }
 
-// TYPOGRAPHY
-h2 {
-  font-size: 3rem;
+.row-2 {
+  padding-left: 25px;
+}
+
+.row-3 {
+  padding-left: 50px;
+}
+
+.row-4 {
+  padding-left: 75px;
+}
+
+button[class^="key"] {
+  display: block;
+  text-decoration: none;
+  height: 75px;
+  width: 75px;
+  margin: 10px 10px;
+}
+
+button.key-enter {
+  width: 100px ;
+}
+
+button.key-ls {
+  width: 175px ;
+}
+
+button.bk {
+  background-color: rgb(107, 107, 107);
 }
