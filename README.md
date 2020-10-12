@@ -18,3 +18,7 @@ Hammeron is a digital polyphonic synthesizer app.
 * SCSS
 * HTML
 * Tone.js
+
+# Wireframes
+
+
