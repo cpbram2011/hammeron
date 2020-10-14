@@ -1,14 +1,102 @@
 * {
-  border: 1px solid black;
+  color: inherit;
+}
+
+li {
+  list-style: none;
 }
 
 body {
-  height: 100vw;
+  height: 700px;
+  width: 1300px;
+  background-image: url('https://www.lavalamp.com/wp-content/uploads/2016/08/SILVER-BACKGROUND.jpg');
+  background-size: cover;
+  border: 1px solid black;
+}
+
+.banner {
+  display: flex;
+  height: 110px;
+  align-items: center;
+  justify-content: space-around;
+}
+h1 {
+  display: block;
+  padding-right: 200px;
+  width: 200px;
+}
+
+.github img {
+  border-radius: 45px;
+  border: 2px solid  rgb(255, 255, 255);
+  height: 40px;
+  width: 40px;
+  background-color: rgb(255, 255, 255);
+}
+
+
+
+
+div.content {
+  display: flex;
+  background-color: rgb(0, 65, 16);
+  height: 408px;
+  border: 7px solid black;
+  border-radius: 5px;
+ 
+}
+
+.settings {
+  height: 408px;
+  width: 200px;
+  background-color: rgb(94, 94, 94);
+  text-align: center;
+  
+
+  .waveform {
+    background-color: rgb(185, 185, 185);
+    margin: 0 auto;
+    width: 180px;
+    height: 100px;
+    border-radius: 3px;
+
+  }
+
+  .slider-labels {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 10px;
+  }
+  span {
+    background-color: black;
+    display: block;
+    color:  rgb(94, 94, 94);
+    cursor: pointer;
+    height: 25px;
+    border-bottom: 1px solid rgb(48, 48, 48);
+    
+  }
+
+
+}
+
+
+.setting-h {
+  text-align: center;
+}
+
+span.selected {
+    color: white;
+
+  
 }
 .keyboard {
-  height: 50vh;
-  width: 60vw;
-  margin: 0 auto;
+  height: 408px;
+  background-color: rgba($color: #00328f, $alpha: 0.6);
+  width: 1000px;
+ 
 }
 
 div[class^="row-"] {
@@ -33,8 +121,9 @@ button[class^="key"] {
   display: block;
   text-decoration: none;
   height: 75px;
-  width: 75px;
+  width: 100px;
   margin: 10px 10px;
+  border-radius: 5px;;
 }
 
 button.key-enter {
@@ -51,5 +140,27 @@ button.bk {
 
 
 button.pressed {
-  background-color: blue ;
+  background-color: rgb(57, 54, 202) ;
+}
+
+
+.sliders {
+  display: flex;
+  height: 100px;
+  width: 200px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0;
+  transform: rotate(90deg);
+
+  input {
+    margin: 30px;
+    -webkit-appearance: none; 
+    appearance: none;
+    background: #bdbcbc; 
+    outline: none; 
+    height: 1px;
+    width: 100px;
+  }
 }
