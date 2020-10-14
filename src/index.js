@@ -3,22 +3,23 @@ import "./styles/dropdown.scss";
 // import * as WaveformSelector from './scripts/waveform'
 // console.log(WaveformSelector.synthParams)
 
+const filter = new Tone.AutoFilter().toDestination()
+filter.set({
+  frequency : 200 ,
+  rolloff : -12 ,
+  Q : 1 ,
+  gain : 0
+});
 
-
-const square = new Tone.Synth({
-  oscillator: {
-    type: 'square'
-  }
-}).toDestination()
-const filter = new Tone.Filter().toDestination()
-filter.type = 'lowpass';
 const osc = new Tone.PolySynth().toDestination()
 const bendosc = new Tone.Synth().toDestination()
 const vib = new Tone.Vibrato(5, 0.1).toDestination()
 const vibosc = new Tone.Synth().toDestination()
+
 vibosc.connect(vib);
-osc.connect(filter)
+osc.connect(filter);
 const now = Tone.now();
+
 let down = {};
 let voices = {};
 
@@ -40,12 +41,13 @@ const revPitches = pitches.map((x,i) => pitches[pitches.length - i - 1])
 // const pitches = ['C2','D2','E2','G2','A2','C3','D3','E3','G3','A3','C4','D4','E4','G4','A4','C5','D5','E5','G5','A5'] // pentatonic
 
 const keys = "zxcvbnm,./asdfghjkl;'qwertyuiop[]1234567890-=".split('')
+const upperKeys = "ZXCVBNM,./ASDFGHJKL;'QWERTYUIOP[]1234567890-=".split('')
 
 keys.forEach(p => {
   down[p] = 0;
 });
 
-pitches.forEach(p => {
+upperKeys.forEach(p => {
   down[p] = 0;
 });
 
@@ -54,13 +56,17 @@ const keyMap = {};
 
 keys.forEach((key, i) =>{
   if (i < 10) {
-    keyMap[key] = pitches[i]
+    keyMap[key] = pitches[i];
+    // keyMap[upperKeys[i]] = pitches[i];
   } else if (i < 21 ) {
-    keyMap[key] = pitches[i - 5]
+    keyMap[key] = pitches[i - 5];
+    // keyMap[upperKeys[i]] = pitches[i - 5];
   } else if (i < 33 ) {
-    keyMap[key] = pitches[i - 11]
+    keyMap[key] = pitches[i - 11];
+    // keyMap[upperKeys[i]] = pitches[i - 11];
   } else {
     keyMap[key] = pitches[i - 18]
+    // keyMap[upperKeys[i]] = pitches[i - 18];
   }
 }
 );
@@ -107,10 +113,10 @@ document.addEventListener("DOMContentLoaded", () => {
         vibosc.triggerAttack(soprano, now)
       }
         
-      osc.triggerAttack(keyMap[e.key], now);
+     osc.triggerAttack(keyMap[e.key], now);
       const pressed = document.getElementsByClassName(`key-${e.key}`)[0]
       if (pressed) pressed.classList.add('pressed')
-    }
+    } 
   });
 
     //   var autoWah = new Tone.AutoWah(60, 4, -30).toMaster();
