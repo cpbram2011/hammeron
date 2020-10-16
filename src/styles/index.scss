@@ -22,7 +22,7 @@ body {
 h1 {
   display: block;
   font-family: monospace;
-  font-size: 3.3em;
+  font-size: 3.5em;
   margin-top: 0px;
   padding-right: 200px;
   width: 200px;
@@ -34,6 +34,7 @@ h1 {
   height: 40px;
   width: 40px;
   background-color: rgb(255, 255, 255);
+  box-shadow: 3px 4px 10px 1px black;
 }
 
 
@@ -49,7 +50,7 @@ div.content {
   border: 5px solid rgb(0, 0, 0);
   outline: 5px solid rgb(112, 0, 0);
   border-radius: 2px;
-  margin: 0 auto;
+  margin-left: 125px;
   box-shadow: 3px 100px 70px 30px rgba(0,0,0,0.8);
 }
 
@@ -160,6 +161,7 @@ button.pressed {
   padding: 0;
   transform: rotate(90deg);
 
+  
   input {
     margin: 30px;
     -webkit-appearance: none; 
@@ -168,5 +170,15 @@ button.pressed {
     outline: none; 
     height: 1px;
     width: 100px;
+  }
+  input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #000000;
+    height: 16px;
+    width: 10px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 3px -2px 5px 1px rgba($color: #000000, $alpha: 0.5); 
   }
 }
