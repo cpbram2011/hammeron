@@ -155,6 +155,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (['sine','triangle','square','sawtooth'].includes(e.target.classList[0])){
       const old = document.getElementsByClassName('selected')[0]
       if (old) old.classList.remove('selected')
+        
+    
       e.target.classList.add('selected')
       // synthParams.type = e.target.classList[0]
       

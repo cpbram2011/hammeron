@@ -9,19 +9,21 @@ li {
 body {
   height: 700px;
   width: 1300px;
-  background-image: url('https://www.lavalamp.com/wp-content/uploads/2016/08/SILVER-BACKGROUND.jpg');
+  background-image: url("https://i.pinimg.com/originals/df/80/8f/df808f6bfc95b04ecfa02502c905ca7e.jpg");
   background-size: cover;
-  border: 1px solid black;
 }
 
 .banner {
   display: flex;
   height: 110px;
-  align-items: center;
+  
   justify-content: space-around;
 }
 h1 {
   display: block;
+  font-family: monospace;
+  font-size: 3.3em;
+  margin-top: 0px;
   padding-right: 200px;
   width: 200px;
 }
@@ -39,27 +41,30 @@ h1 {
 
 div.content {
   display: flex;  
-  background-color: rgba($color: #00328f, $alpha: 1);
+  
+  background-image: url('https://www.lavalamp.com/wp-content/uploads/2016/08/SILVER-BACKGROUND.jpg');
+  background-size: cover;
   width: 1200px;
   height: 408px;
-  border: 7px solid black;
-  border-radius: 5px;
- 
+  border: 5px solid rgb(0, 0, 0);
+  outline: 5px solid rgb(112, 0, 0);
+  border-radius: 2px;
+  margin: 0 auto;
+  box-shadow: 3px 100px 70px 30px rgba(0,0,0,0.8);
 }
 
 .settings {
   height: 408px;
   width: 200px;
-  background-color: rgb(94, 94, 94);
   text-align: center;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  border-right: 2px solid black;
   
 
   .waveform {
-    background-color: rgb(185, 185, 185);
-    margin: 0 auto;
-    width: 180px;
-    height: 100px;
-    border-radius: 3px;
+    margin: 0 auto 20px;
+    width: 120px;
+    height: 120px;
 
   }
 
@@ -70,15 +75,7 @@ div.content {
     justify-content: space-around;
     padding: 0 10px;
   }
-  span {
-    background-color: black;
-    display: block;
-    color:  rgb(94, 94, 94);
-    cursor: pointer;
-    height: 25px;
-    border-bottom: 1px solid rgb(48, 48, 48);
-    
-  }
+  
 
 
 }
@@ -95,8 +92,8 @@ span.selected {
 }
 .keyboard {
   height: 408px;
-  background-color: rgba($color: #00328f, $alpha: 0.6);
   width: 1000px;
+  
  
 }
 
@@ -119,12 +116,18 @@ div[class^="row-"] {
 }
 
 button[class^="key"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
   display: block;
   text-decoration: none;
   height: 75px;
   width: 100px;
   margin: 10px 10px;
-  border-radius: 5px;;
+  border-radius: 5px;
+  color:rgba($color:  #bdbcbc, $alpha: 0.7);
+  font-size: larger;
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.8);
+
 }
 
 button.key-enter {
@@ -142,6 +145,8 @@ button.bk {
 
 button.pressed {
   background-color: rgb(57, 54, 202) ;
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.8);
+
 }
 
 
