@@ -135,7 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
       bendosc.frequency.rampTo(bend.start, 0.2);
     }
     if (e.key === 'Enter') {
-      console.log('neat')
       
       vibosc.triggerRelease(now)    
     }
