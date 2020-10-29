@@ -3,12 +3,11 @@ import "./styles/dropdown.scss";
 // import * as WaveformSelector from './scripts/waveform'
 // console.log(WaveformSelector.synthParams)
 
-const filter = new Tone.AutoFilter().toDestination()
+const filter = new Tone.Filter().toDestination()
 filter.set({
-  frequency : 200 ,
-  rolloff : -12 ,
-  Q : 1 ,
-  gain : 0
+  frequency : 1200 ,
+  type: 'highpass',
+  rolloff : -24
 });
 
 const osc = new Tone.PolySynth().toDestination()
@@ -17,7 +16,9 @@ const vib = new Tone.Vibrato(5, 0.1).toDestination()
 const vibosc = new Tone.Synth().toDestination()
 
 vibosc.connect(vib);
+
 osc.connect(filter);
+
 const now = Tone.now();
 
 let down = {};
@@ -75,6 +76,38 @@ let bend = {
   start: null,
   end: null
 };
+
+let freq = document.getElementById('freq');
+let res = document.getElementById('res');
+let filtype = document.getElementById('filter');
+let filtername = document.getElementById('filter-name');
+
+freq.addEventListener('input', e => {
+  filter.set({ frequency: e.target.value ** 2 / 5 })
+  console.log(e.target.value ** 2 / 5)
+})
+
+res.addEventListener('input', e => {
+  osc.set({ detune: e.target.value })
+})
+
+filtype.addEventListener('input', (e) => {
+    if (e.target.value === '1') {
+    filter.set({ type: 'lowpass' });
+    filtername.innerHTML = 'LPF'
+  } else if (e.target.value === '2') {
+    filter.set({ type: 'highpass' }) ;
+    filtername.innerHTML = 'HPF'
+  } else if (e.target.value === '3') { 
+    filter.set({ type: 'bandpass' });
+    filtername.innerHTML = 'BPF'
+  } else {
+    filter.set({ type: 'allpass' });
+    filtername.innerHTML = 'APF'
+
+  }
+})
+
 document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", e => {
     // console.log(e.key)

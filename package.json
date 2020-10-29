@@ -14,7 +14,7 @@
     "webpack:watch": "webpack --watch --config webpack.dev.js",
     "webpack:build": "webpack --config webpack.prod.js  --optimize-minimize"
   },
-  "author": "mrcjbradley",
+  "author": "cbram",
   "license": "ISC",
   "dependencies": {
     "tone": "^14.7.58"

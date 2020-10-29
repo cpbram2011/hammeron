@@ -33,15 +33,17 @@
         </div>
         
         <div class="slider-labels">
-          <li>LPF</li>
+          <li id='filter-name'>LPF</li>
           <li>FREQ</li>
-          <li>RES</li>
+          <li>DTN</li>
 
         </div>
         <div class="sliders">
-          <input type="range" class='lfo' ></input>
-          <input type="range" class='freq'min="0" max="100" value="0"></input>
-          <input type="range" class='res'min="0" max="100" value="0"></input>
+          <input type="range" id='res' min="0" max="100" value="0">
+           
+          </input>
+          <input type="range" id='freq' min="0" max="100" value="0"></input>
+          <input type="range" id='filter' min="1" max="4" value="0"></input>
         </div>
       </div>
       
