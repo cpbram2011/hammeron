@@ -3,12 +3,11 @@ import "./styles/dropdown.scss";
 // import * as WaveformSelector from './scripts/waveform'
 // console.log(WaveformSelector.synthParams)
 
-const filter = new Tone.AutoFilter().toDestination()
+const filter = new Tone.Filter().toDestination()
 filter.set({
-  frequency : 200 ,
-  rolloff : -12 ,
-  Q : 1 ,
-  gain : 0
+  frequency : 1200 ,
+  type: 'highpass',
+  rolloff : -24
 });
 
 const osc = new Tone.PolySynth().toDestination()
@@ -17,7 +16,9 @@ const vib = new Tone.Vibrato(5, 0.1).toDestination()
 const vibosc = new Tone.Synth().toDestination()
 
 vibosc.connect(vib);
+
 osc.connect(filter);
+
 const now = Tone.now();
 
 let down = {};
@@ -29,16 +30,17 @@ let voices = {};
 // 'C3','Db3','D3','Eb3','E3','F3','Gb3','G3','Ab3','A3','Bb3','B3',
 // 'C4','Db4','D4','Eb4','E4','F4','Gb4']
 
-const pitches = ['E3','F3','Gb3','G3','Ab3','A3','Bb3','B3',
-'C4','Db4','D4','Eb4','E4','F4','Gb4','G4','Ab4','A4','Bb4','B4',
-'C5','Db5','D5','Eb5','E5','F5','Gb5','G5','Ab5']
-
-const revPitches = pitches.map((x,i) => pitches[pitches.length - i - 1])
 // const pitches = ['C3','D3','E3','F3','G3','Ab3','A3','B3',     //barry harris
 // 'C4','D4','E4','F4','G4','Ab4','A4','B4',
 // 'C5','D5','E5','F5','Gb5','G5','Ab5','A5','B5',]
 
 // const pitches = ['C2','D2','E2','G2','A2','C3','D3','E3','G3','A3','C4','D4','E4','G4','A4','C5','D5','E5','G5','A5'] // pentatonic
+
+const pitches = ['E3','F3','Gb3','G3','Ab3','A3','Bb3','B3',
+'C4','Db4','D4','Eb4','E4','F4','Gb4','G4','Ab4','A4','Bb4','B4',
+'C5','Db5','D5','Eb5','E5','F5','Gb5','G5','Ab5']
+
+const revPitches = pitches.map((x,i) => pitches[pitches.length - i - 1])
 
 const keys = "zxcvbnm,./asdfghjkl;'qwertyuiop[]1234567890-=".split('')
 const upperKeys = "ZXCVBNM,./ASDFGHJKL;'QWERTYUIOP[]1234567890-=".split('')
@@ -75,6 +77,40 @@ let bend = {
   start: null,
   end: null
 };
+
+let freq = document.getElementById('freq');
+let res = document.getElementById('res');
+let filtype = document.getElementById('filter');
+let filtername = document.getElementById('filter-name');
+
+freq.addEventListener('input', e => {
+  filter.set({ frequency: e.target.value ** 2 / 5 })
+  console.log(e.target.value ** 2 / 5)
+})
+
+res.addEventListener('input', e => {
+  osc.set({ detune: e.target.value })
+  vibosc.set({ detune: e.target.value })
+  bendosc.set({ detune: e.target.value })
+})
+
+filtype.addEventListener('input', (e) => {
+    if (e.target.value === '1') {
+    filter.set({ type: 'lowpass' });
+    filtername.innerHTML = 'LPF'
+  } else if (e.target.value === '2') {
+    filter.set({ type: 'highpass' }) ;
+    filtername.innerHTML = 'HPF'
+  } else if (e.target.value === '3') { 
+    filter.set({ type: 'bandpass' });
+    filtername.innerHTML = 'BPF'
+  } else {
+    filter.set({ type: 'allpass' });
+    filtername.innerHTML = 'APF'
+
+  }
+})
+
 document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", e => {
     // console.log(e.key)
@@ -94,17 +130,15 @@ document.addEventListener("DOMContentLoaded", () => {
       // bend.start ? (bend.end = pitches[pitches.indexOf(bend.start) + 2]) : null;
       // console.log(bend)
 
-  
-      if (e.location === KeyboardEvent.DOM_KEY_LOCATION_RIGHT){
-        if (e.key === 'Shift'){
-          bend.start = revPitches.find(p => voices[p] === 1)
-          bend.start ? (bend.end = pitches[pitches.indexOf(bend.start) + 2]) : null;
-          console.log(bend)
-          osc.triggerRelease(bend.start, now)        
-          bendosc.triggerAttack(bend.start, now)
-          bendosc.frequency.rampTo(bend.end, 0.2 )
-        } 
-      }
+      if (e.keyCode === 32){
+        bend.start = revPitches.find(p => voices[p] === 1)
+        bend.start ? (bend.end = pitches[pitches.indexOf(bend.start) + 2]) : null;
+        console.log(bend)
+        osc.triggerRelease(bend.start, now)        
+        bendosc.triggerAttack(bend.start, now)
+        bendosc.frequency.rampTo(bend.end, 0.2 )
+      } 
+      
       if (e.key === 'Enter') {
         console.log('neat')
         const soprano = revPitches.find(p => voices[p] === 1); 
@@ -130,8 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
   
   document.addEventListener("keyup", (e) => {
-    if (e.location === KeyboardEvent.DOM_KEY_LOCATION_RIGHT){
-      debugger
+    if (e.keyCode === 32){
       bendosc.frequency.rampTo(bend.start, 0.2);
     }
     if (e.key === 'Enter') {
@@ -146,6 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
       bend.start = null;
       bend.end = null;
     }
+
     const unpressed = document.getElementsByClassName(`key-${e.key}`)[0]
     if (unpressed) unpressed.classList.remove('pressed')
     }, false)
@@ -169,7 +203,22 @@ document.addEventListener("DOMContentLoaded", () => {
           'type': e.target.classList[0]
         }
       });
-      
+      vibosc.set({
+        'oscillator': {
+          'type': e.target.classList[0]
+        }
+      });
     }
+  });
+
+  const modalcontainer = document.getElementById('modal-container')
+  const help = document.getElementById('help')
+  help.addEventListener('click', () => {
+    modalcontainer.classList.remove('hidden')
   })
+  modalcontainer.addEventListener('click', () => {
+    modalcontainer.classList.add('hidden')
+  })
+
+
 });
