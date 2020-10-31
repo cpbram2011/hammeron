@@ -30,16 +30,17 @@ let voices = {};
 // 'C3','Db3','D3','Eb3','E3','F3','Gb3','G3','Ab3','A3','Bb3','B3',
 // 'C4','Db4','D4','Eb4','E4','F4','Gb4']
 
-const pitches = ['E3','F3','Gb3','G3','Ab3','A3','Bb3','B3',
-'C4','Db4','D4','Eb4','E4','F4','Gb4','G4','Ab4','A4','Bb4','B4',
-'C5','Db5','D5','Eb5','E5','F5','Gb5','G5','Ab5']
-
-const revPitches = pitches.map((x,i) => pitches[pitches.length - i - 1])
 // const pitches = ['C3','D3','E3','F3','G3','Ab3','A3','B3',     //barry harris
 // 'C4','D4','E4','F4','G4','Ab4','A4','B4',
 // 'C5','D5','E5','F5','Gb5','G5','Ab5','A5','B5',]
 
 // const pitches = ['C2','D2','E2','G2','A2','C3','D3','E3','G3','A3','C4','D4','E4','G4','A4','C5','D5','E5','G5','A5'] // pentatonic
+
+const pitches = ['E3','F3','Gb3','G3','Ab3','A3','Bb3','B3',
+'C4','Db4','D4','Eb4','E4','F4','Gb4','G4','Ab4','A4','Bb4','B4',
+'C5','Db5','D5','Eb5','E5','F5','Gb5','G5','Ab5']
+
+const revPitches = pitches.map((x,i) => pitches[pitches.length - i - 1])
 
 const keys = "zxcvbnm,./asdfghjkl;'qwertyuiop[]1234567890-=".split('')
 const upperKeys = "ZXCVBNM,./ASDFGHJKL;'QWERTYUIOP[]1234567890-=".split('')
@@ -89,6 +90,8 @@ freq.addEventListener('input', e => {
 
 res.addEventListener('input', e => {
   osc.set({ detune: e.target.value })
+  vibosc.set({ detune: e.target.value })
+  bendosc.set({ detune: e.target.value })
 })
 
 filtype.addEventListener('input', (e) => {
@@ -176,6 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
       bend.start = null;
       bend.end = null;
     }
+
     const unpressed = document.getElementsByClassName(`key-${e.key}`)[0]
     if (unpressed) unpressed.classList.remove('pressed')
     }, false)
@@ -204,7 +208,17 @@ document.addEventListener("DOMContentLoaded", () => {
           'type': e.target.classList[0]
         }
       });
-      
     }
+  });
+
+  const modalcontainer = document.getElementById('modal-container')
+  const help = document.getElementById('help')
+  help.addEventListener('click', () => {
+    modalcontainer.classList.remove('hidden')
   })
+  modalcontainer.addEventListener('click', () => {
+    modalcontainer.classList.add('hidden')
+  })
+
+
 });
