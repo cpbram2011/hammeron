@@ -19,6 +19,12 @@ body {
   
   justify-content: space-around;
 }
+
+.links {
+  width: 190px;
+  display: flex;
+  justify-content: space-between;
+}
 h1 {
   display: block;
   font-family: monospace;
@@ -26,6 +32,20 @@ h1 {
   margin-top: 0px;
   padding-right: 200px;
   width: 200px;
+}
+
+.help {
+  background-color: #818181;
+  background-image: url("../images/question-circle.png");
+  background-size: cover;
+  border: 3px solid #818181;
+  border-radius: 100px;
+  height: 38px;
+  width: 38px;
+  box-shadow: 3px 4px 5px 1px rgb(255, 255, 255);
+  filter: invert(1);
+  cursor: pointer;
+  
 }
 
 .github img {
@@ -37,6 +57,12 @@ h1 {
   box-shadow: 3px 4px 10px 1px black;
 }
 
+.linkedin img {
+  box-shadow: 3px 4px 10px 1px black;
+  background-color: white;
+  border: none;
+  border-radius: 4px;
+}
 
 
 
