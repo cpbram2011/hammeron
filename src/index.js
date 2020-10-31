@@ -127,17 +127,15 @@ document.addEventListener("DOMContentLoaded", () => {
       // bend.start ? (bend.end = pitches[pitches.indexOf(bend.start) + 2]) : null;
       // console.log(bend)
 
-  
-      if (e.location === KeyboardEvent.DOM_KEY_LOCATION_RIGHT){
-        if (e.key === 'Shift'){
-          bend.start = revPitches.find(p => voices[p] === 1)
-          bend.start ? (bend.end = pitches[pitches.indexOf(bend.start) + 2]) : null;
-          console.log(bend)
-          osc.triggerRelease(bend.start, now)        
-          bendosc.triggerAttack(bend.start, now)
-          bendosc.frequency.rampTo(bend.end, 0.2 )
-        } 
-      }
+      if (e.keyCode === 32){
+        bend.start = revPitches.find(p => voices[p] === 1)
+        bend.start ? (bend.end = pitches[pitches.indexOf(bend.start) + 2]) : null;
+        console.log(bend)
+        osc.triggerRelease(bend.start, now)        
+        bendosc.triggerAttack(bend.start, now)
+        bendosc.frequency.rampTo(bend.end, 0.2 )
+      } 
+      
       if (e.key === 'Enter') {
         console.log('neat')
         const soprano = revPitches.find(p => voices[p] === 1); 
@@ -163,8 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
   
   document.addEventListener("keyup", (e) => {
-    if (e.location === KeyboardEvent.DOM_KEY_LOCATION_RIGHT){
-      debugger
+    if (e.keyCode === 32){
       bendosc.frequency.rampTo(bend.start, 0.2);
     }
     if (e.key === 'Enter') {
@@ -198,6 +195,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
       bendosc.set({
+        'oscillator': {
+          'type': e.target.classList[0]
+        }
+      });
+      vibosc.set({
         'oscillator': {
           'type': e.target.classList[0]
         }
