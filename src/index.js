@@ -85,7 +85,7 @@ let filtername = document.getElementById('filter-name');
 
 freq.addEventListener('input', e => {
   filter.set({ frequency: e.target.value ** 2 / 5 })
-  console.log(e.target.value ** 2 / 5)
+  // console.log(e.target.value ** 2 / 5)
 })
 
 res.addEventListener('input', e => {
@@ -133,14 +133,13 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.keyCode === 32){
         bend.start = revPitches.find(p => voices[p] === 1)
         bend.start ? (bend.end = pitches[pitches.indexOf(bend.start) + 2]) : null;
-        console.log(bend)
+        // console.log(bend)
         osc.triggerRelease(bend.start, now)        
         bendosc.triggerAttack(bend.start, now)
         bendosc.frequency.rampTo(bend.end, 0.2 )
       } 
       
       if (e.key === 'Enter') {
-        console.log('neat')
         const soprano = revPitches.find(p => voices[p] === 1); 
         
         osc.triggerRelease(soprano, now)                
