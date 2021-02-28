@@ -141,7 +141,6 @@ document.addEventListener("DOMContentLoaded", () => {
       
       if (e.key === 'Enter') {
         const soprano = revPitches.find(p => voices[p] === 1); 
-        
         osc.triggerRelease(soprano, now)                
         vibosc.triggerAttack(soprano, now)
       }
@@ -158,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // //Q value influences the effect of the wah - default is 2
     // autoWah.Q.value = 6;
     // //more audible on higher notes
-  
+
   
   
   
@@ -183,31 +182,31 @@ document.addEventListener("DOMContentLoaded", () => {
     if (unpressed) unpressed.classList.remove('pressed')
     }, false)
 
-    document.addEventListener("click", e => {
-      if (['sine','triangle','square','sawtooth'].includes(e.target.classList[0])){
-      const old = document.getElementsByClassName('selected')[0]
-      if (old) old.classList.remove('selected')
-        
-    
-      e.target.classList.add('selected')
-      // synthParams.type = e.target.classList[0]
+  document.addEventListener("click", e => {
+    if (['sine','triangle','square','sawtooth'].includes(e.target.classList[0])){
+    const old = document.getElementsByClassName('selected')[0]
+    if (old) old.classList.remove('selected')
       
-      osc.set({
-        'oscillator': {
-          'type': e.target.classList[0]
-        }
-      });
-      bendosc.set({
-        'oscillator': {
-          'type': e.target.classList[0]
-        }
-      });
-      vibosc.set({
-        'oscillator': {
-          'type': e.target.classList[0]
-        }
-      });
-    }
+
+    e.target.classList.add('selected')
+    // synthParams.type = e.target.classList[0]
+    
+    osc.set({
+      'oscillator': {
+        'type': e.target.classList[0]
+      }
+    });
+    bendosc.set({
+      'oscillator': {
+        'type': e.target.classList[0]
+      }
+    });
+    vibosc.set({
+      'oscillator': {
+        'type': e.target.classList[0]
+      }
+    });
+  }
   });
 
   const modalcontainer = document.getElementById('modal-container')
