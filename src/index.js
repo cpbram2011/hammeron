@@ -85,6 +85,7 @@ let bend = {
   start: null,
   end: null
 };
+
 document.addEventListener("DOMContentLoaded", () => {
 
   let freq = document.getElementById('freq');
