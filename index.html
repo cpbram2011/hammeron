@@ -10,9 +10,20 @@
     <link rel="icon" 
       type="image/png" 
       href="https://contrafact-seeds.s3.us-east-2.amazonaws.com/piano_icon.PNG">
+    <link rel="stylesheet" href="./dist/loading.css" />
+    <link rel="stylesheet" href="./dist/main.css" />
+    <script src="./dist/main.js"></script>
   </head>
   
+  
   <body>
+    <div class="loading">
+      <h1
+      style="color: grey; padding: 0"
+      >HAMMERON</h1>
+
+    <span class="loader"></span>
+    </div>
     <div class="modal-container hidden" id='modal-container'>
       <div id='modal' class="modal">
         <h3>Welcome to HAMMERON</h3>  
@@ -128,46 +139,8 @@
           <button class="key-Shift">Shift</button>
         </div>
       </div>
-      <script src="./dist/main.js"></script>
-      </div>
-      <!-- <div class="sequencer">
-        <div class='seq-1'>
-
-          <input type="checkbox" name="" id="">
-          <input type="checkbox" name="" id="">
-          <input type="checkbox" name="" id="">
-          <input type="checkbox" name="" id="">
-          <input type="checkbox" name="" id="">
-          <input type="checkbox" name="" id="">
-          <input type="checkbox" name="" id="">
-          <input type="checkbox" name="" id="">
-        </div>
-        <div class='seq-2'>
-
-          <input type="checkbox" name="" id="">
-          <input type="checkbox" name="" id="">
-          <input type="checkbox" name="" id="">
-          <input type="checkbox" name="" id="">
-          <input type="checkbox" name="" id="">
-          <input type="checkbox" name="" id="">
-          <input type="checkbox" name="" id="">
-          <input type="checkbox" name="" id="">
-        </div>
-        <div class = 'seq-3'>
-
-          <input type="checkbox" name="" id="">
-          <input type="checkbox" name="" id="">
-          <input type="checkbox" name="" id="">
-          <input type="checkbox" name="" id="">
-          <input type="checkbox" name="" id="">
-          <input type="checkbox" name="" id="">
-          <input type="checkbox" name="" id="">
-          <input type="checkbox" name="" id="">
-        </div>
-      </div> -->
-
-
+    </div>
+    
   </body>
   
-  <link rel="stylesheet" href="./dist/main.css" />
 </html>

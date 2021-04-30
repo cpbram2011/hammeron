@@ -1,7 +1,15 @@
 import "./styles/index.scss";
 import "./styles/dropdown.scss";
-// import * as WaveformSelector from './scripts/waveform'
-// console.log(WaveformSelector.synthParams)
+
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.querySelector(".loading").classList.add('done');
+    
+  }, 500)
+})
+
+
 
 const filter = new Tone.Filter().toDestination()
 filter.set({
@@ -77,49 +85,47 @@ let bend = {
   start: null,
   end: null
 };
-
-let freq = document.getElementById('freq');
-let res = document.getElementById('res');
-let filtype = document.getElementById('filter');
-let filtername = document.getElementById('filter-name');
-
-freq.addEventListener('input', e => {
-  filter.set({ frequency: e.target.value ** 2 / 5 })
-  console.log(e.target.value ** 2 / 5)
-})
-
-res.addEventListener('input', e => {
-  osc.set({ detune: e.target.value })
-  vibosc.set({ detune: e.target.value })
-  bendosc.set({ detune: e.target.value })
-})
-
-filtype.addEventListener('input', (e) => {
-    if (e.target.value === '1') {
-    filter.set({ type: 'lowpass' });
-    filtername.innerHTML = 'LPF'
-  } else if (e.target.value === '2') {
-    filter.set({ type: 'highpass' }) ;
-    filtername.innerHTML = 'HPF'
-  } else if (e.target.value === '3') { 
-    filter.set({ type: 'bandpass' });
-    filtername.innerHTML = 'BPF'
-  } else {
-    filter.set({ type: 'allpass' });
-    filtername.innerHTML = 'APF'
-
-  }
-})
-
 document.addEventListener("DOMContentLoaded", () => {
+
+  let freq = document.getElementById('freq');
+  let res = document.getElementById('res');
+  let filtype = document.getElementById('filter');
+  let filtername = document.getElementById('filter-name');
+
+  freq.addEventListener('input', e => {
+    filter.set({ frequency: e.target.value ** 2 / 5 })
+    console.log(e.target.value ** 2 / 5)
+  })
+
+  res.addEventListener('input', e => {
+    osc.set({ detune: e.target.value })
+    vibosc.set({ detune: e.target.value })
+    bendosc.set({ detune: e.target.value })
+  })
+
+  filtype.addEventListener('input', (e) => {
+      if (e.target.value === '1') {
+      filter.set({ type: 'lowpass' });
+      filtername.innerHTML = 'LPF'
+    } else if (e.target.value === '2') {
+      filter.set({ type: 'highpass' }) ;
+      filtername.innerHTML = 'HPF'
+    } else if (e.target.value === '3') { 
+      filter.set({ type: 'bandpass' });
+      filtername.innerHTML = 'BPF'
+    } else {
+      filter.set({ type: 'allpass' });
+      filtername.innerHTML = 'APF'
+
+    }
+  })
+
   document.addEventListener("keydown", e => {
     // console.log(e.key)
     // console.log(keyMap[e.key])
     if (e.keyCode === 32){
       e.preventDefault()
     }
-
-
 
     if ( down[e.key] === 0) {
       down[e.key] = 1;
