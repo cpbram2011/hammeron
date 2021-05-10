@@ -33,15 +33,12 @@ let down = {};
 let voices = {};
 
 
-
 // const pitches = ['E2','F2','Gb2','G2','Ab2','A2','Bb2','B2',   //octave down
 // 'C3','Db3','D3','Eb3','E3','F3','Gb3','G3','Ab3','A3','Bb3','B3',
 // 'C4','Db4','D4','Eb4','E4','F4','Gb4']
-
 // const pitches = ['C3','D3','E3','F3','G3','Ab3','A3','B3',     //barry harris
 // 'C4','D4','E4','F4','G4','Ab4','A4','B4',
 // 'C5','D5','E5','F5','Gb5','G5','Ab5','A5','B5',]
-
 // const pitches = ['C2','D2','E2','G2','A2','C3','D3','E3','G3','A3','C4','D4','E4','G4','A4','C5','D5','E5','G5','A5'] // pentatonic
 
 const pitches = ['E3','F3','Gb3','G3','Ab3','A3','Bb3','B3',
@@ -95,7 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   freq.addEventListener('input', e => {
     filter.set({ frequency: e.target.value ** 2 / 5 })
-    console.log(e.target.value ** 2 / 5)
   })
 
   res.addEventListener('input', e => {
@@ -122,9 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   document.addEventListener("keydown", e => {
-    // console.log(e.key)
-    // console.log(keyMap[e.key])
-    if (e.keyCode === 32){
+        if (e.keyCode === 32){
       e.preventDefault()
     }
 
@@ -135,19 +129,16 @@ document.addEventListener("DOMContentLoaded", () => {
       // let voiceArr = Object.keys(voices)
       // bend.start = voiceArr[voiceArr.length - 1]//revPitches.find(p => voices[p] === 1)
       // bend.start ? (bend.end = pitches[pitches.indexOf(bend.start) + 2]) : null;
-      // console.log(bend)
 
       if (e.keyCode === 32){
         bend.start = revPitches.find(p => voices[p] === 1)
         bend.start ? (bend.end = pitches[pitches.indexOf(bend.start) + 2]) : null;
-        console.log(bend)
         osc.triggerRelease(bend.start, now)        
         bendosc.triggerAttack(bend.start, now)
         bendosc.frequency.rampTo(bend.end, 0.2 )
       } 
       
       if (e.key === 'Enter') {
-        console.log('neat')
         const soprano = revPitches.find(p => voices[p] === 1); 
         
         osc.triggerRelease(soprano, now)                

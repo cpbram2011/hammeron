@@ -184,10 +184,11 @@ button[class^="key"] {
   width: 100px;
   margin: 10px 10px;
   border-radius: 5px;
-  color:rgba($color:  #bdbcbc, $alpha: 0.7);
+  color:rgba($color:  #aaaaaa, $alpha: 1);
   font-size: larger;
   box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.8);
-
+  border: none;
+  cursor: pointer;
 }
 
 button.key-enter {
