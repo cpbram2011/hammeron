@@ -54,13 +54,6 @@ keys.forEach((key, i) =>{
 document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("keydown", e => {
       
-        // if (soprano = null) {
-        //     soprano = 'p'
-        //     melody.triggerAttack(soprano, now)
-        // } else if ('p' higherThan soprano ) {
-        //     voices.concat(soprano)
-        // }
-
 
 
 
