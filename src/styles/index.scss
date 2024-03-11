@@ -1,21 +1,47 @@
 * {
   color: inherit;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+h1 {
+  display: block;
+  font-family: monospace;
+  font-size: 3.5em;
+  margin-top: 0px;
+  padding-right: 200px;
+  width: 200px;
+}
 
 li {
   list-style: none;
 }
 
 body {
-  height: 700px;
-  width: 1300px;
   background-image: url("https://i.pinimg.com/originals/df/80/8f/df808f6bfc95b04ecfa02502c905ca7e.jpg");
   background-size: cover;
   margin: 0 !important;
 }
 
+.banner {
+  display: flex;
+  height: 110px;
+  justify-content: space-around;
+}
 
+
+.links {
+  width: 190px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+
+  img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+  }
+}
 
 .modal-container {
   z-index: 5;
@@ -45,71 +71,21 @@ body {
 .hidden {
   display: none;
 }
-.banner {
-  display: flex;
-  height: 110px;
-  
-  justify-content: space-around;
-}
-
-.links {
-  width: 190px;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 5px;
-}
-h1 {
-  display: block;
-  font-family: monospace;
-  font-size: 3.5em;
-  margin-top: 0px;
-  padding-right: 200px;
-  width: 200px;
-}
-
-.help {
-  background-color: #818181;
-  background-image: url("../images/question-circle.png");
-  background-size: cover;
-  border: 3px solid #818181;
-  border-radius: 100px;
-  height: 38px;
-  width: 38px;
-  box-shadow: 3px 4px 5px 1px rgb(255, 255, 255);
-  filter: invert(1);
-  cursor: pointer;
-  
-}
-
-.github img {
-  border-radius: 45px;
-  border: 2px solid  rgb(255, 255, 255);
-  height: 40px;
-  width: 40px;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 3px 4px 10px 1px black;
-}
-
-.linkedin img {
-  box-shadow: 3px 4px 10px 1px black;
-  background-color: white;
-  border: none;
-  border-radius: 4px;
-}
 
 
 
 div.content {
   display: flex;  
-  
+  justify-content: space-between;
   background-image: url('https://www.lavalamp.com/wp-content/uploads/2016/08/SILVER-BACKGROUND.jpg');
   background-size: cover;
-  width: 1200px;
-  height: 408px;
+  max-width: 1200px;
+  max-height: 400px;
+  width: 90vw;
   border: 5px solid rgb(0, 0, 0);
   outline: 5px solid rgb(112, 0, 0);
   border-radius: 2px;
-  margin-left: 125px;
+  margin: 0 auto;
   box-shadow: 3px 100px 70px 30px rgba(0,0,0,0.8);
 }
 
@@ -125,7 +101,22 @@ div.content {
     margin: 0 auto 20px;
     width: 120px;
     height: 120px;
+    display: flex;
+    flex-wrap: wrap;
+  }
 
+  .waveform img {
+    background-color: black;
+    display: block;
+    color:  rgb(94, 94, 94);
+    cursor: pointer;
+    border: 7px solid black;
+    height: 45px;
+    width: 45px;
+    margin: 0 0.5px;
+  }
+  .selected {
+    border-color: rgb(170, 170, 170) !important;
   }
 
   .slider-labels {
@@ -135,32 +126,16 @@ div.content {
     justify-content: space-around;
     padding: 0 10px;
   }
-  
-
-
 }
 
-
-.setting-h {
-  text-align: center;
-}
-
-span.selected {
-    color: white;
-
-  
-}
 .keyboard {
   height: 408px;
-  width: 1000px;
-  
- 
+  width: 80%;
 }
 
 div[class^="row-"] {
   height: 100px;
   display: flex;
- 
 }
 
 .row-2 {
@@ -181,33 +156,30 @@ button[class^="key"] {
   display: block;
   text-decoration: none;
   height: 75px;
-  width: 100px;
+  flex: 1;
   margin: 10px 10px;
   border-radius: 5px;
   color:rgba($color:  #aaaaaa, $alpha: 1);
   font-size: larger;
   box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.8);
   border: none;
-  cursor: pointer;
 }
 
-button.key-enter {
-  width: 100px ;
+button.key-Enter {
+  flex: 2 !important;
 }
 
 button.key-Shift {
-  width: 175px ;
+  flex: 3 !important;
 }
 
 button.bk {
   background-color: rgb(107, 107, 107);
 }
 
-
 button.pressed {
   background-color: rgb(57, 54, 202) ;
   box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.8);
-
 }
 
 
@@ -221,7 +193,6 @@ button.pressed {
   padding: 0;
   transform: rotate(90deg);
 
-  
   input {
     margin: 30px;
     -webkit-appearance: none; 

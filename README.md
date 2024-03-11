@@ -3,27 +3,6 @@ https://cpbram2011.github.io/hammeron/
 
 
 
-"@babel/core": "^7.11.6",
-"@babel/plugin-proposal-optional-chaining": "^7.11.0",
-"@babel/preset-env": "^7.11.5",
-"autoprefixer": "^9.8.6",
-"babel-loader": "^8.1.0",
-"css-loader": "^3.6.0",
-"fibers": "^4.0.3",
-"file-loader": "^5.1.0",
-"mini-css-extract-plugin": "^0.8.2",
-"node-sass": "^4.14.1",
-"postcss-loader": "^3.0.0",
-"sass": "^1.27.0",
-"sass-loader": "^8.0.2",
-"style-loader": "^1.3.0",
-"url-loader": "^3.0.0",
-"webpack": "^4.44.2",
-"webpack-cli": "^3.3.12",
-"webpack-dev-server": "^3.11.0",
-"webpack-merge": "^4.2.2"
-
-
 
 # MVP / Funtionality 
 Hammeron is a digital polyphonic synthesizer app. Users can play chords & melodies using a standard QWERTY keyboard. On screen menus allow users to modify the timbre of the synth, trigger modulation instances, and control a small drum sequencer.
