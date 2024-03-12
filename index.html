@@ -26,7 +26,7 @@
     <div class="modal-container hidden" id='modal-container'>
       <div id='modal' class="modal">
         <h3>Welcome to HAMMERON</h3>  
-        <p>HAMMERON lets you play a virtual polyphonic synthesizer using your keyboard. Whether you're a music enthusiast or a beginner, HammerOn provides a simple platform to create and explore various melodies. Dive in, experiment, and let your creativity flow </p>
+        <p>HAMMERON lets you play a virtual polyphonic synthesizer using a physical QWERTY keyboard. Whether you're a music enthusiast or a beginner, HammerOn provides a simple platform to create and explore various melodies. Dive in, experiment, and let your creativity flow </p>
         <p>Use your keyboard to play notes</p>
         <p>Hold Shift while releasing notes to trigger sustain</p>
         <br/>
@@ -42,11 +42,11 @@
         <a id='help' >
           <img src="./src/images/question-circle.png" />
         </a>
-        <a target="_blank" href="https://github.com/cpbram2011" >
-          <img src="./src/images/github-mark.png"   />
-        </a>
         <a target="_blank" href="https://www.linkedin.com/in/chris-bram-522a661b9/" >
           <img src="./src/images/linkedinCircle.png"  alt="'LinkedIn" />
+        </a>
+        <a target="_blank" href="https://github.com/cpbram2011" >
+          <img src="./src/images/github-mark.png"   />
         </a>
 
       </div>
@@ -65,82 +65,82 @@
             <img class="waveform-img square" src="./src/images/square.PNG" >
             <img class="waveform-img sawtooth" src="./src/images/sawtooth.PNG" >
         </div>
-        
-        <div class="slider-labels">
-          <li class='filter-name'>LPF</li>
-          <li>FREQ</li>
-          <li>DTN</li>
+        <div class='sliders'>
+          <div class="slider-labels">
+            <li id='filter-name'>LPF</li>
+            <li>FREQ</li>
+            <li>DTN</li>
+          </div>
+          <div class="slider-inputs">
+            <input type="range" id='filter' min="1" max="4" value="0"/>
+            <input type="range" id='freq' min="0" max="100" value="0"/>
+            <input type="range" id='res' min="0" max="100" value="0"/>
+          </div>
 
-        </div>
-        <div class="sliders">
-          <input type="range" id='res' min="0" max="100" value="0">
-           
-          </input>
-          <input type="range" id='freq' min="0" max="100" value="0"></input>
-          <input type="range" id='filter' min="1" max="4" value="0"></input>
         </div>
       </div>
       
       
       <div class="keyboard">
         <div class="row-1">
-          <button class="key-1">1</button>
-          <button class="key-2 bk">2</button>
-          <button class="key-3">3</button>
-          <button class="key-4 bk">4</button>
-          <button class="key-5">5</button>
-          <button class="key-6">6</button>
-          <button class="key-7 bk">7</button>
-          <button class="key-8">8</button>
-          <button class="key-9 bk">9</button>
-          <button class="key-0">0</button>
-          <button class="key--">-</button>
-          <button class="key-= bk">=</button>
+          <button disabled class="key-1">1</button>
+          <button disabled class="key-2 bk">2</button>
+          <button disabled class="key-3">3</button>
+          <button disabled class="key-4 bk">4</button>
+          <button disabled class="key-5">5</button>
+          <button disabled class="key-6">6</button>
+          <button disabled class="key-7 bk">7</button>
+          <button disabled class="key-8">8</button>
+          <button disabled class="key-9 bk">9</button>
+          <button disabled class="key-0">0</button>
+          <button disabled class="key--">-</button>
+          <button disabled class="key-= bk">=</button>
         </div>
         <div class="row-2">
-          <button class="key-q">q</button>
-          <button class="key-w bk">w</button>
-          <button class="key-e">e</button>
-          <button class="key-r">r</button>
-          <button class="key-t bk">t</button>
-          <button class="key-y">y</button>
-          <button class="key-u bk">u</button>
-          <button class="key-i">i</button>
-          <button class="key-o bk">o</button>
-          <button class="key-p">p</button>
-          <button class="key-[">[</button>
-          <button class="key-] bk">]</button>
+          <button disabled class="key-q">q</button>
+          <button disabled class="key-w bk">w</button>
+          <button disabled class="key-e">e</button>
+          <button disabled class="key-r">r</button>
+          <button disabled class="key-t bk">t</button>
+          <button disabled class="key-y">y</button>
+          <button disabled class="key-u bk">u</button>
+          <button disabled class="key-i">i</button>
+          <button disabled class="key-o bk">o</button>
+          <button disabled class="key-p">p</button>
+          <button disabled class="key-[">[</button>
+          <button disabled class="key-] bk">]</button>
         </div>
         <div class="row-3"> 
-          <button class="key-a">a</button>
-          <button class="key-s bk">s</button>
-          <button class="key-d">d</button>
-          <button class="key-f">f</button>
-          <button class="key-g bk">g</button>
-          <button class="key-h">h</button>
-          <button class="key-j bk">j</button>
-          <button class="key-k">k</button>
-          <button class="key-l">l</button>
-          <button class="key-; bk">;</button>
-          <button class="key-'">'</button>
-          <button class="key-Enter">enter</button>
+          <button disabled class="key-a">a</button>
+          <button disabled class="key-s bk">s</button>
+          <button disabled class="key-d">d</button>
+          <button disabled class="key-f">f</button>
+          <button disabled class="key-g bk">g</button>
+          <button disabled class="key-h">h</button>
+          <button disabled class="key-j bk">j</button>
+          <button disabled class="key-k">k</button>
+          <button disabled class="key-l">l</button>
+          <button disabled class="key-; bk">;</button>
+          <button disabled class="key-'">'</button>
+          <!-- <button disabled class="key-Enter">enter</button> -->
         </div>
         <div class="row-4">
-          <button class="key-z">z</button>
-          <button class="key-x">x</button>
-          <button class="key-c bk">c</button>
-          <button class="key-v">v</button>
-          <button class="key-b bk">b</button>
-          <button class="key-n">n</button>
-          <button class="key-m bk">m</button>
-          <button class="key-,">,</button>
-          <button class="key-.">.</button>
-          <button class="key-/ bk">/</button>
-          <button class="key-Shift">Shift</button>
+          <button disabled class="key-z">z</button>
+          <button disabled class="key-x">x</button>
+          <button disabled class="key-c bk">c</button>
+          <button disabled class="key-v">v</button>
+          <button disabled class="key-b bk">b</button>
+          <button disabled class="key-n">n</button>
+          <button disabled class="key-m bk">m</button>
+          <button disabled class="key-,">,</button>
+          <button disabled class="key-.">.</button>
+          <button disabled class="key-/ bk">/</button>
+          <button disabled class="key-Shift">Shift</button>
         </div>
       </div>
     </div>
-    
+    <div class="need-keyboard-container">
+    </div>
   </body>
   <script src="./dist/main.js"></script>
 

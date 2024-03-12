@@ -8,12 +8,14 @@ h1 {
   font-family: monospace;
   font-size: 3.5em;
   margin-top: 0px;
-  padding-right: 200px;
-  width: 200px;
+  margin-bottom: 10px;
+  width: 230px;
+  text-align: center;
 }
 
 li {
   list-style: none;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 body {
@@ -24,8 +26,11 @@ body {
 
 .banner {
   display: flex;
-  height: 110px;
+  height: 80px;
   justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
 }
 
 
@@ -40,6 +45,8 @@ body {
     width: 50px;
     height: 50px;
     cursor: pointer;
+    
+
   }
 }
 
@@ -72,16 +79,13 @@ body {
   display: none;
 }
 
-
-
-div.content {
-  display: flex;  
-  justify-content: space-between;
+.content {
+  display: flex;
   background-image: url('https://www.lavalamp.com/wp-content/uploads/2016/08/SILVER-BACKGROUND.jpg');
   background-size: cover;
   max-width: 1200px;
   max-height: 400px;
-  width: 90vw;
+  width: 96vw;
   border: 5px solid rgb(0, 0, 0);
   outline: 5px solid rgb(112, 0, 0);
   border-radius: 2px;
@@ -89,6 +93,14 @@ div.content {
   box-shadow: 3px 100px 70px 30px rgba(0,0,0,0.8);
 }
 
+
+@media (max-width: 768px) {
+  .content {
+    width: 85%;
+
+    max-width: 500px;
+  }
+}
 .settings {
   height: 408px;
   width: 200px;
@@ -96,6 +108,7 @@ div.content {
   background-color: rgba($color: #000000, $alpha: 0.5);
   border-right: 2px solid black;
   
+
 
   .waveform {
     margin: 0 auto 20px;
@@ -118,19 +131,74 @@ div.content {
   .selected {
     border-color: rgb(170, 170, 170) !important;
   }
+}
 
-  .slider-labels {
-    display: flex;
-    height: 40px;
-    align-items: center;
-    justify-content: space-around;
-    padding: 0 10px;
+@media (max-width: 768px) {
+  .settings {
+    width: 100%;
+
+  }
+}
+
+.sliders {
+  display: flex;
+  height: 100px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+
+.slider-labels {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+}
+
+
+.slider-inputs {
+  height: 96%;
+  box-sizing: border-box;
+  padding: 4px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+
+  input {
+    -webkit-appearance: none; 
+    appearance: none;
+    background: #000000; 
+    outline: none; 
+    height: 2px;
+    width: 100px;
+  }
+
+  input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #000000;
+    height: 18px;
+    width: 10px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 3px -2px 5px 1px rgba($color: #000000, $alpha: 0.5); 
   }
 }
 
 .keyboard {
   height: 408px;
-  width: 80%;
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .keyboard {
+    display: none;
+  }
 }
 
 div[class^="row-"] {
@@ -138,16 +206,25 @@ div[class^="row-"] {
   display: flex;
 }
 
+.row-1 {
+  padding-left: 5px;
+  padding-right: 50px;
+
+}
+
 .row-2 {
   padding-left: 25px;
+  padding-right: 25px;
 }
 
 .row-3 {
-  padding-left: 50px;
+  padding-left: 25px;
+  padding-right: 50px;
 }
 
 .row-4 {
-  padding-left: 75px;
+  padding-left: 50px;
+  padding-right: 5px;
 }
 
 button[class^="key"] {
@@ -156,13 +233,16 @@ button[class^="key"] {
   display: block;
   text-decoration: none;
   height: 75px;
+  border: 2px solid #404040;
   flex: 1;
-  margin: 10px 10px;
-  border-radius: 5px;
-  color:rgba($color:  #aaaaaa, $alpha: 1);
+  margin: 10px 0.2em;
+  color: rgba($color:  #aaaaaa, $alpha: 1);
   font-size: larger;
-  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.8);
-  border: none;
+  text-transform: capitalize;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.4);
+  
 }
 
 button.key-Enter {
@@ -170,46 +250,16 @@ button.key-Enter {
 }
 
 button.key-Shift {
-  flex: 3 !important;
+  flex: 2 !important;
 }
 
 button.bk {
-  background-color: rgb(107, 107, 107);
+  background-color: rgb(86, 86, 86);
 }
 
 button.pressed {
   background-color: rgb(57, 54, 202) ;
-  box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.8);
-}
+  -webkit-box-shadow: inset 8px 10px 9px -4px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset 8px 10px 9px -4px rgba(0,0,0,0.75);
+  box-shadow: inset 8px 10px 9px -4px rgba(0,0,0,0.75);}
 
-
-.sliders {
-  display: flex;
-  height: 100px;
-  width: 200px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  padding: 0;
-  transform: rotate(90deg);
-
-  input {
-    margin: 30px;
-    -webkit-appearance: none; 
-    appearance: none;
-    background: #bdbcbc; 
-    outline: none; 
-    height: 1px;
-    width: 100px;
-  }
-  input::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    border: 1px solid #000000;
-    height: 16px;
-    width: 10px;
-    border-radius: 3px;
-    background: #ffffff;
-    cursor: pointer;
-    box-shadow: 3px -2px 5px 1px rgba($color: #000000, $alpha: 0.5); 
-  }
-}
